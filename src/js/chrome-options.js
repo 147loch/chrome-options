@@ -237,7 +237,8 @@ const addTabOptions = (tabKey, values, options) => {
             showSavedAlert();
             flashSavedAlert();
             cloneValue();
-            $saveContainer.dispatchEvent('formSaved');
+            const event = new Event('formSaved');
+            $saveContainer.dispatchEvent(event);
           }
         } else if (isEqual) {
           for (let optionKey in valueToSave) { delete changedValues[optionKey]; }
