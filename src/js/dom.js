@@ -20,7 +20,7 @@ export const slideYShow = ($node, ms = animTime) => {
   $node.style.marginTop = '';
   $node.style.marginBottom = '';
   const heightInt = outerHeight($node);
-  const height = `${height}px`;
+  const height = `${heightInt}px`;
   $node.style.height = startingHeight;
   $node.style.paddingTop = '0';
   $node.style.paddingBottom = '0';
