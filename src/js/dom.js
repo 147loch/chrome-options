@@ -1,5 +1,13 @@
 import h from './hyperscript.js';
 
+function outerHeight(el) {
+  var height = el.offsetHeight;
+  var style = getComputedStyle(el);
+
+  height += parseInt(style.marginTop) + parseInt(style.marginBottom);
+  return height;
+}
+
 const animTime = 500;
 const animFunc = 'ease-in-out';
 export const slideYShow = ($node, ms = animTime) => {
@@ -11,8 +19,8 @@ export const slideYShow = ($node, ms = animTime) => {
   $node.style.paddingBottom = '';
   $node.style.marginTop = '';
   $node.style.marginBottom = '';
-  const height = window.getComputedStyle($node).height;
-  const heightInt = parseInt(height, 10);
+  const heightInt = outerHeight($node);
+  const height = `${height}px`;
   $node.style.height = startingHeight;
   $node.style.paddingTop = '0';
   $node.style.paddingBottom = '0';
