@@ -237,7 +237,7 @@ const addTabOptions = (tabKey, values, options) => {
             showSavedAlert();
             flashSavedAlert();
             cloneValue();
-            const event = new Event('formSaved');
+            const event = new CustomEvent('formSaved', {tab: Object.keys(valueToSave)[0]});
             $saveContainer.dispatchEvent(event);
           }
         } else if (isEqual) {
